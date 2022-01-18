@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ProvaServlet extends HttpServlet{
 
 	// commento utilissimo
+	// CI SIAMO??
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/html");
