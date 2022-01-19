@@ -41,11 +41,12 @@ public class UtentiServiceImpl implements UtentiService{
 	public UtentiDto login(String username, String password) {		
 		try {
 			Connection conn = DbConnection.getConnection();
-			String sql = "SELECT username, password FROM utenti";
+			String sql = "SELECT * FROM utenti";
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet rs = statement.executeQuery();
 			while(rs.next()) {
-				if(username == rs.getString("username") && password == rs.getString("password")) {
+				if(username.equals(rs.getString("username")) && password.equals(rs.getString("password"))) {
+					System.out.println("true");
 					Utenti utente = new Utenti();
 					utente.setId(rs.getInt("ID"));
 					utente.setNome(rs.getString("nome"));
@@ -54,13 +55,18 @@ public class UtentiServiceImpl implements UtentiService{
 					utente.setUsername(rs.getString("username"));
 					utente.setPassword(rs.getString("password"));
 					utente.setAmministratore(rs.getBoolean("amministratore"));
-					UtentiDto dto = UtentiMapper.toDto(utente);		
+					UtentiDto dto = UtentiMapper.toDto(utente);	
+					conn.close();
 					return dto;
 				}
+				System.out.println("False");
 			}
+			conn.close();
+			return null;
 			
 		}
 		catch (Exception e) {
+			System.out.println("exce");
 			e.printStackTrace();
 		}
 		return null;
