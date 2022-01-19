@@ -13,11 +13,14 @@ import it.etlabora.progettojavaweb.service.UtentiService;
 import it.etlabora.progettojavaweb.service.impl.UtentiServiceImpl;
 
 public class Login extends HttpServlet{
+	
+	UtentiService utenteService = new UtentiServiceImpl();
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String username = req.getParameter(username);
-		String password = req.getParameter(password);
-		UtentiDto dto = UtentiServiceImpl.login(username, password);
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		UtentiDto dto = utenteService.login(username, password);
+		req.setAttribute("username", dto.getUsername());
 		req.getRequestDispatcher("jsp/login.jsp").forward(req, resp);
 	}
 }

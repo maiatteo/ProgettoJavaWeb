@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-ssd
+    <h1>${username}</h1>
+    ${username}
 </body>
 </html>
