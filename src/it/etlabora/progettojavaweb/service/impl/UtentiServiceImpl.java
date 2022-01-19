@@ -63,12 +63,49 @@ public class UtentiServiceImpl implements UtentiService{
 			}
 			conn.close();
 			return null;
-			
+
 		}
 		catch (Exception e) {
 			System.out.println("exce");
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public void registrazione(String nome, String cognome, String email, String username, String password) {
+		try{
+			Connection conn = DbConnection.getConnection();
+			String sql = "SELECT * FROM utenti";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()) {
+				if(username.equals(rs.getString("username")) || email.equals(rs.getString("email"))) {
+					System.out.println("True");
+					return;
+				}
+			}
+			System.out.println("False");
+			
+			sql = "INSERT INTO utenti \n" +
+					"(nome, cognome, email, username, password, amministratore) \n" +
+					"VALUES(?, ?, ?, ?, ?, ?) \n";
+			statement = conn.prepareStatement(sql);
+			statement.setString(1, nome);
+			statement.setString(2, cognome);
+			statement.setString(3, email);
+			statement.setString(4, username);
+			statement.setString(5, password);
+			statement.setBoolean(6, false);
+			statement.executeUpdate();
+			
+			conn.close();
+			return;
+
+		}
+		catch (Exception e) {
+			System.out.println("exce");
+			e.printStackTrace();
+		}
+		return;
 	}
 }

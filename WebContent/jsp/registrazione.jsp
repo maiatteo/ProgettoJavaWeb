@@ -8,7 +8,7 @@
 <body>
 	<h1>Registrazione</h1>
 	<div id="formulario">
-	<form action="/ProvaCom/index" method="GET">
+	<form action="/ProvaCom/registrazione" method="POST">
 	<div>
 			<label>Nome: </label><br><input type="text" name="nome" />
 		</div>

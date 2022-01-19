@@ -19,4 +19,6 @@ public interface UtentiService {
 		
 		public UtentiDto login(String username, String password);
 		
+		public void registrazione(String nome, String cognome, String email, String username, String password);
+		
 }
