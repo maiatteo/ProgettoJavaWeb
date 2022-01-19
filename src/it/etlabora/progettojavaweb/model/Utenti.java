@@ -1,6 +1,7 @@
-package it.etlabora.progettojavaweb.dto;
+package it.etlabora.progettojavaweb.model;
 
-public class UtentiDto {
+public class Utenti {
+	
 	private Integer id;
 	private String nome;
 	private String cognome;
@@ -54,3 +55,5 @@ public class UtentiDto {
 	
 
 }
+
+
