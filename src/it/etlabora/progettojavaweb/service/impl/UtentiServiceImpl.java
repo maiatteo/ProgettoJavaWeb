@@ -1,5 +1,7 @@
 package it.etlabora.progettojavaweb.service.impl;
 
-public class UtentiServiceImpl {
+import it.etlabora.progettojavaweb.service.UtentiService;
+
+public class UtentiServiceImpl implements UtentiService{
 
 }
