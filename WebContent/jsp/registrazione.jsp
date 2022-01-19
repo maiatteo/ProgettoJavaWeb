@@ -7,11 +7,10 @@
 </head>
 <body>
 	<h1>Registration</h1>
-	<form action="/ProvaCom/login" method="GET">
+	<form action="/ProvaCom/index" method="GET">
 	
 		<input type="submit" value="REGISTER" />
 	
 	</form>
-	<h4>Not registered yet? <a href="ProvaCom/registration">register</a></h4>
 </body>
 </html>
