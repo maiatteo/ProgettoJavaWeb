@@ -3,6 +3,7 @@ package it.etlabora.progettojavaweb.service;
 import java.util.List;
 
 import it.etlabora.progettojavaweb.dto.UtentiDto;
+import it.etlabora.progettojavaweb.model.Utenti;
 
 public interface UtentiService {
 	
@@ -16,6 +17,6 @@ public interface UtentiService {
 
 		public List<UtentiDto> getAll();
 		
-		public void login(String username, String password);
+		public UtentiDto login(String username, String password);
 	
 }

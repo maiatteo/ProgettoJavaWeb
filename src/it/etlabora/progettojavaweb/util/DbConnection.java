@@ -9,14 +9,14 @@ public class DbConnection {
 	//                                      org.sqlite.JDBC
 	public static final String DB_NAME = "jdbc:sqlite:C:\\Users\\Talento\\git\\ProgettoJavaWeb\\Biblioteca";
 	//  Nome preciso =>     jdbc:sqlite:C:\\path\\to\\file.db
-	public static final String DB_USERNAME = "root";
-	public static final String DB_PASSWORD = "root";
+	//public static final String DB_USERNAME = "root";
+	//public static final String DB_PASSWORD = "root";
 
 	public static Connection getConnection() throws Exception {
 		Connection conn = null;
 		Class.forName(DB_DRIVER);
 
-		conn = DriverManager.getConnection(DB_NAME, DB_USERNAME, DB_PASSWORD);
+		conn = DriverManager.getConnection(DB_NAME);
 		return conn;
 	}
 }

@@ -9,7 +9,7 @@ import it.etlabora.progettojavaweb.model.Utenti;
 public class UtentiMapper {
 	
 	
-	public UtentiDto toDto(Utenti utente) {
+	public static UtentiDto toDto(Utenti utente) {
 		if(utente == null) {
 			return null;
 		}
