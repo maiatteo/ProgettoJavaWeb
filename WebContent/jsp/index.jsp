@@ -17,5 +17,6 @@
 		</div>
 		<input type="submit" value="LOGIN" />
 	</form>
+	<h4>Not registered yet? <a href="/ProvaCom/registrazione">register</a></h4>
 </body>
 </html>
