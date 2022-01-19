@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Session Login</h1>
-	<form action="/ProgettoJavaWeb/login" method="GET">
+	<form action="/ProvaCom/login" method="GET">
 		<div>
 			<label>Username: </label><input type="text" name="username" />
 		</div>

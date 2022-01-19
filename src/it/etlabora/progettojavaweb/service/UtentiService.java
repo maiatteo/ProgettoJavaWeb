@@ -18,5 +18,5 @@ public interface UtentiService {
 		public List<UtentiDto> getAll();
 		
 		public UtentiDto login(String username, String password);
-	
+		
 }
