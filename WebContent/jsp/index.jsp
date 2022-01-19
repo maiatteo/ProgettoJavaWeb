@@ -7,16 +7,37 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Session Login</h1>
+	<h1>Login</h1>
+	<div id="formulario">
 	<form action="/ProvaCom/login" method="GET">
 		<div>
 			<label>Username: </label><input type="text" name="username" />
 		</div>
 		<div>
 			<label>Password: </label><input type="password" name="password" />
-		</div>
+		</div><br>
 		<input type="submit" value="LOGIN" />
 	</form>
-	<h4>Not registered yet? <a href="/ProvaCom/registrazione">register</a></h4>
+	</div>
+	<h4>non sei ancora registrato? <a href="/ProvaCom/registrazione">registrati</a></h4>
 </body>
+<style>
+#formulario{
+padding:20px;
+width:200px;
+heigth:100px;
+margin: 0 auto;
+border:2px solid black;
+
+}
+h1{
+text-align:center;
+}
+h4{
+text-align:center;
+}
+body{
+background:#FAEBD7;
+}
+</style>
 </html>
