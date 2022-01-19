@@ -1,4 +1,3 @@
-//<<<<<<< HEAD
 package it.etlabora.progettojavaweb.util;
 
 import java.sql.Connection;
