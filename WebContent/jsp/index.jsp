@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Session Login</h1>
-	<form action="/SessionTutorial/landing" method="GET">
+	<form action="/ProgettoJavaWeb/landing" method="GET">
 		<div>
 			<label>Username: </label><input type="text" name="username" />
 		</div>
