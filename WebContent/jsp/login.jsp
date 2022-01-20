@@ -20,7 +20,7 @@
 				<tr>
 					<td>${libro.id}</td>
 					<td>${libro.titolo}</td>
-
+  <td><a href="./dettagli/?id=${libro.id}">dettagli</a></td>
 				</tr>
 			</c:forEach>
 		</table>
