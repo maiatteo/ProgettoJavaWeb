@@ -34,7 +34,8 @@ public class Login extends HttpServlet{
 			req.getRequestDispatcher("jsp/index.jsp").forward(req, resp);
 			return;
 		}
-		req.setAttribute("username", dto.getUsername());
+		session.setAttribute("username", dto.getUsername());
+		session.setAttribute("amministratore", dto.getAmministratore());
 		List<LibriDto> libri = libriService.getAll();
 		req.setAttribute("libri", libri);
 		req.getRequestDispatcher("jsp/login.jsp").forward(req, resp);
