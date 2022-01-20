@@ -13,7 +13,7 @@ import it.etlabora.progettojavaweb.mapper.LibriMapper;
 import it.etlabora.progettojavaweb.model.Libri;
 
 public class LibriServiceImpl implements LibriService {
-	
+
 	private LibriMapper libriMapper = new LibriMapper();
 
 	//@Override
@@ -88,5 +88,29 @@ public class LibriServiceImpl implements LibriService {
 		return libri;
 	}
 
+	public List<LibriDto> search(String termine){
+		List<LibriDto> libri = new ArrayList<>();
 
+		try {
+			System.out.println("Ci provo");
+			Connection conn = DbConnection.getConnection();
+			String sql = "SELECT * FROM libri WHERE titolo LIKE '" + termine + "%'";
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet rs = statement.executeQuery();
+
+			Libri libro;
+			while (rs.next()) {
+				System.out.println("trovato uno");
+				libro = new Libri();
+				libro.setId(rs.getInt("id"));
+				libro.setTitolo(rs.getString("titolo"));
+				libri.add(libriMapper.toDto(libro));
+			}
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return libri;
+	}
 }

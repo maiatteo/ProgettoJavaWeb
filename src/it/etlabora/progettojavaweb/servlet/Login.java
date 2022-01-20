@@ -40,4 +40,14 @@ public class Login extends HttpServlet{
 		req.setAttribute("libri", libri);
 		req.getRequestDispatcher("jsp/login.jsp").forward(req, resp);
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String termine = req.getParameter("termine");
+		req.setAttribute("termine", termine);
+		System.out.println("gof");
+		List<LibriDto> libri = libriService.search(termine);
+		req.setAttribute("libri", libri);
+		req.getRequestDispatcher("jsp/login.jsp").forward(req, resp);
+	}
 }

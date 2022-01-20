@@ -15,4 +15,6 @@ public interface LibriService {
 	public void delete(Long id);
 
 	public List<LibriDto> getAll();
+	
+	public List<LibriDto> search(String termine);
 }
