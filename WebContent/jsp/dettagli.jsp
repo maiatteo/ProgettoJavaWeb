@@ -20,6 +20,18 @@
 		<div>
 			<label>AUTORI: ${libro.autori}</label> 
 		</div>
+		<div>
+			<label>CATEGORIA: ${libro.categoria}</label> 
+		</div>
+		<div>
+			<label>ISBN: ${libro.isbn}</label> 
+		</div>
+		<div>
+			<label>NOTE: ${libro.note}</label> 
+		</div>
+		<div>
+			<label>STATO: ${libro.stato}</label> 
+		</div>
 	</form>
 </body>
 </html>
