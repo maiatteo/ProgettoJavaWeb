@@ -17,7 +17,6 @@
 	</form>
 	<table>
 		<tr>
-			<th>ID</th>
 			<th>TITOLO</th>
 			<th>DISPONIBILITA</th>
 			<th>DETTAGLI</th>
@@ -25,13 +24,9 @@
 		</tr>
 		<c:forEach items="${libri}" var="libro">
 			<tr>
-				<td>${libro.id}</td>
 				<td>${libro.titolo}</td>
 				<td>${libro.stato}</td>
-				<td><a href="/ProvaCom/Dettagli">dettagli</a></td>
-				<c:if test="${libro.stato == 'disponibile'}">
-					<td><input type="submit" value="PRENOTA"/></td>
-				</c:if>
+				<td><a href="/ProvaCom/Dettagli?id=${libro.id}">dettagli</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -49,6 +49,10 @@ public class LibriServiceImpl implements LibriService {
 			libro.setTitolo(rs.getString("titolo"));
 			libro.setCasaeditrice(rs.getString("casaeditrice"));
 			libro.setAutori(rs.getString("autori"));
+			libro.setCategoria(rs.getString("categoria"));
+			libro.setIsbn(rs.getString("isbn"));
+			libro.setNote(rs.getString("note"));
+			libro.setStato(rs.getString("stato"));
 			dto = libriMapper.toDto(libro);
 			// }
 
@@ -60,7 +64,7 @@ public class LibriServiceImpl implements LibriService {
 	}
 
 	//@Override
-	public void delete(Long id) {		
+	public void delete(Integer id) {
 	}
 
 	//@Override
