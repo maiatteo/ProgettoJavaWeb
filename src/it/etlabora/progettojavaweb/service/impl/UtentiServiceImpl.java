@@ -68,24 +68,24 @@ public class UtentiServiceImpl implements UtentiService{
 	public UtentiDto login(String username, String password) {		
 		try {
 			Connection conn = DbConnection.getConnection();
-			String sql = "SELECT * FROM utenti";
+			String sql = "SELECT * FROM utenti WHERE username = '" + username + "' AND password = '" + password + "'";
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet rs = statement.executeQuery();
-			while(rs.next()) {
-				if(username.equals(rs.getString("username")) && password.equals(rs.getString("password"))) {
-					System.out.println("true");
-					Utenti utente = new Utenti();
-					utente.setId(rs.getInt("ID"));
-					utente.setNome(rs.getString("nome"));
-					utente.setCognome(rs.getString("cognome"));
-					utente.setEmail(rs.getString("email"));
-					utente.setUsername(rs.getString("username"));
-					utente.setPassword(rs.getString("password"));
-					utente.setAmministratore(rs.getBoolean("amministratore"));
-					UtentiDto dto = UtentiMapper.toDto(utente);	
-					conn.close();
-					return dto;
-				}
+			if(rs.next()) {
+				System.out.println("true");
+				Utenti utente = new Utenti();
+				utente.setId(rs.getInt("ID"));
+				utente.setNome(rs.getString("nome"));
+				utente.setCognome(rs.getString("cognome"));
+				utente.setEmail(rs.getString("email"));
+				utente.setUsername(rs.getString("username"));
+				utente.setPassword(rs.getString("password"));
+				utente.setAmministratore(rs.getBoolean("amministratore"));
+				UtentiDto dto = UtentiMapper.toDto(utente);	
+				conn.close();
+				return dto;		
+			}
+			else{
 				System.out.println("False");
 			}
 			conn.close();
