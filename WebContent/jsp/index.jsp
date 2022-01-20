@@ -20,6 +20,19 @@
 	</form>
 	</div>
 	<h4>non sei ancora registrato? <a href="/ProvaCom/registrazione">registrati</a></h4>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>TITOLO</th>
+		</tr>
+		<c:forEach items="${libri}" var="libro">
+			<tr>
+				<td>${libro.id}</td>
+				<td>${libro.titolo}</td>
+				
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 <style>
 #formulario{
