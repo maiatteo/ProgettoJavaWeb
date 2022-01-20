@@ -28,7 +28,35 @@ public class LibriServiceImpl implements LibriService {
 
 	//@Override
 	public LibriDto getOne(Long id) {
-		return null;
+		if (id == null) {
+			return null;
+		}
+		LibriDto dto = null;
+
+		try {
+			Connection conn = DbConnection.getConnection();
+			String sql = "SELECT * FROM libri WHERE id = ?";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			// "1" is the index 1-based
+			// setLong method lets me set the x param as given long
+			statement.setLong(1, id);
+			ResultSet rs = statement.executeQuery();
+
+			// while (rs.next()) {
+			rs.next();
+			Libri libro = new Libri();
+			libro.setId(rs.getInt("id"));
+			libro.setTitolo(rs.getString("titolo"));
+			libro.setCasaeditrice(rs.getString("casaeditrice"));
+			libro.setAutori(rs.getString("autori"));
+			dto = libriMapper.toDto(libro);
+			// }
+
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
 	}
 
 	//@Override
