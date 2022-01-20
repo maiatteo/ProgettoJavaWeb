@@ -16,6 +16,7 @@
 					<th>COGNOME</th>
 					<th>EMAIL</th>
 					<th>AMMINISTRATORE</th>
+					<th>ELIMINA</th>
 				</tr>
 				<c:forEach items="${utenti}" var="utente">
 					<tr>
@@ -23,7 +24,12 @@
 						<td>${utente.cognome}</td>
 						<td>${utente.email}</td>
 						<td>${utente.amministratore}</td>
-
+						<c:choose>
+							<c:when test="${utente.amministratore}"></c:when>
+						<c:otherwise>
+							<td><button type="submit">ELIMINA</button></td>
+						</c:otherwise>
+						</c:choose>
 					</tr>
 				</c:forEach>
 			</table>
