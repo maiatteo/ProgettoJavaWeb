@@ -67,4 +67,14 @@
 		<url-pattern>/prenotazione
 		</url-pattern>
 	</servlet-mapping>
+	
+			<servlet>
+		<servlet-name>EliminaUtente</servlet-name>
+		<servlet-class>it.etlabora.progettojavaweb.servlet.EliminaUtente</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminaUtente</servlet-name>
+		<url-pattern>/eliminaUtente
+		</url-pattern>
+	</servlet-mapping>
 </web-app>
