@@ -47,4 +47,14 @@
     		/AmmUtenti
     	</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Dettagli</servlet-name>
+		<servlet-class>it.etlabora.progettojavaweb.servlet.Dettagli</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Dettagli</servlet-name>
+		<url-pattern>/Dettagli
+		</url-pattern>
+	</servlet-mapping>
 </web-app>

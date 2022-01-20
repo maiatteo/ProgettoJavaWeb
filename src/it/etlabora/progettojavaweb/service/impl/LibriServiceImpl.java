@@ -27,7 +27,7 @@ public class LibriServiceImpl implements LibriService {
 	}
 
 	//@Override
-	public LibriDto getOne(Long id) {
+	public LibriDto getOne(Integer id) {
 		if (id == null) {
 			return null;
 		}
@@ -39,7 +39,7 @@ public class LibriServiceImpl implements LibriService {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			// "1" is the index 1-based
 			// setLong method lets me set the x param as given long
-			statement.setLong(1, id);
+			statement.setInt(1, id);
 			ResultSet rs = statement.executeQuery();
 
 			// while (rs.next()) {

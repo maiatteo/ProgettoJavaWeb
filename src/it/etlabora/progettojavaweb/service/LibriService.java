@@ -10,7 +10,7 @@ public interface LibriService {
 
 	public LibriDto update(LibriDto dto);
 
-	public LibriDto getOne(Long id);
+	public LibriDto getOne(Integer id);
 
 	public void delete(Long id);
 
