@@ -97,7 +97,7 @@ public class UtentiServiceImpl implements UtentiService{
 		return savedDto;
 	}
 
-	public UtentiDto getOne(int id) {
+	public UtentiDto getOne(Integer id) {
 
 		UtentiDto dto = null;
 
@@ -129,7 +129,7 @@ public class UtentiServiceImpl implements UtentiService{
 	}
 
 	@Override
-	public void delete(int id) {		
+	public void delete(Integer id) {		
 	}
 
 	@Override
