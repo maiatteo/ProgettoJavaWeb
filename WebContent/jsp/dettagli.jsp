@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,9 @@
 		<div>
 			<label>STATO: ${libro.stato}</label> 
 		</div>
-		<input type="submit" name="PRENOTA"/>
+		<c:if test="${libro.stato == 'disponibile'}">
+		<button type="submit">PRENOTA</button>
+		</c:if>
 	</form>
 </body>
 </html>

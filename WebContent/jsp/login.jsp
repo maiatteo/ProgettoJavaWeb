@@ -27,9 +27,6 @@
 				<td>${libro.titolo}</td>
 				<td>${libro.stato}</td>
 				<td><a href="/ProvaCom/Dettagli?id=${libro.id}">dettagli</a></td>
-				<c:if test="${libro.stato == 'disponibile'}">
-					<td><input type="submit" value="PRENOTA"/></td>
-				</c:if>
 			</tr>
 		</c:forEach>
 	</table>
