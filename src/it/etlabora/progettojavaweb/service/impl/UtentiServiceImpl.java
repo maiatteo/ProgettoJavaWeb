@@ -177,8 +177,10 @@ public class UtentiServiceImpl implements UtentiService{
 	public UtentiDto login(String username, String password) {		
 		try {
 			Connection conn = DbConnection.getConnection();
-			String sql = "SELECT * FROM utenti WHERE username = '" + username + "' AND password = '" + password + "'";
+			String sql = "SELECT * FROM utenti WHERE username = ? AND password = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, username);
+			statement.setString(2, password);
 			ResultSet rs = statement.executeQuery();
 			if(rs.next()) {
 				System.out.println("true");

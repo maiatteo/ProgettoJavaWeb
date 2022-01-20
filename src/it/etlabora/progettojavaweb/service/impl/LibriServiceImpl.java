@@ -99,9 +99,9 @@ public class LibriServiceImpl implements LibriService {
 		try {
 			System.out.println("Ci provo");
 			Connection conn = DbConnection.getConnection();
-			String sql = "SELECT * FROM libri WHERE titolo LIKE '" + termine + "%'";
-
+			String sql = "SELECT * FROM libri WHERE titolo LIKE ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, termine + "%");
 			ResultSet rs = statement.executeQuery();
 
 			Libri libro;
