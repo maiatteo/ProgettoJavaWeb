@@ -18,12 +18,10 @@ import it.etlabora.progettojavaweb.service.impl.LibriServiceImpl;
 public class Index extends HttpServlet{
 	
     
-LibriService libriService = new LibriServiceImpl();
+
 	
     @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	List<LibriDto> libri = libriService.getAll();
-		req.setAttribute("libri", libri);
 		req.getRequestDispatcher("jsp/index.jsp").forward(req, resp);
 	}
 }
