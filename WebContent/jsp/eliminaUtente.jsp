@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-a
+Utente Eliminato!
+<a href="/ProvaCom/login">Torna al login</a>a
 </body>
 </html>

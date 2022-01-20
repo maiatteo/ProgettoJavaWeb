@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-a
+Libro prenotato!
+<a href="/ProvaCom/login">Torna al login</a>
 </body>
 </html>
