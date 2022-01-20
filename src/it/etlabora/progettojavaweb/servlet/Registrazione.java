@@ -21,12 +21,14 @@ public class Registrazione extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nome = req.getParameter("nome");
-		String cognome = req.getParameter("cognome");
-		String email = req.getParameter("email");
-		String username = req.getParameter("username");
-		String password = req.getParameter("password");
-		utenteService.registrazione(nome, cognome, email, username, password);
+		UtentiDto dto = new UtentiDto();
+		dto.setNome(req.getParameter("nome"));
+		dto.setCognome(req.getParameter("cognome"));
+		dto.setEmail(req.getParameter("email"));
+		dto.setUsername(req.getParameter("username"));
+		dto.setPassword(req.getParameter("password"));
+		
+		utenteService.registrazione(dto);
 		req.getRequestDispatcher("jsp/index.jsp").forward(req, resp);
 
 
