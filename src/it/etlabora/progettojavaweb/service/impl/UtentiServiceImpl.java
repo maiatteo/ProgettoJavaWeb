@@ -17,19 +17,115 @@ import it.etlabora.progettojavaweb.util.DbConnection;
 
 public class UtentiServiceImpl implements UtentiService{
 
+	private UtentiMapper utentiMapper = new UtentiMapper();
+	
 	@Override
 	public UtentiDto create(UtentiDto dto) {
-		return null;
+		if (dto == null) {
+			return null;
+		}
+		if (dto.getId() != null) {
+			return this.update(dto);
+		}
+		UtentiDto savedDto = null;
+		try {
+			Connection conn = DbConnection.getConnection();
+			Utenti entity = utentiMapper.toModel(dto);
+			String sql = "INSERT INTO utenti \n" +
+					"(nome, cognome, email, username, password, amministratore) \n" +
+					"VALUES(?, ?, ?, ?, ?, ?) \n";
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, entity.getNome());
+			statement.setString(2, entity.getCognome());
+			statement.setString(3, entity.getEmail());
+			statement.setString(4, entity.getUsername());
+			statement.setString(5, entity.getPassword());
+			statement.setBoolean(6, entity.getAmministratore());
+			
+			statement.executeUpdate();
+			String sql2 = "SELECT MAX(id) FROM utenti";
+			PreparedStatement statement2 = conn.prepareStatement(sql2);
+			ResultSet rs = statement2.executeQuery();
+			rs.next();
+			int id = rs.getInt(1);
+			conn.close();
+
+			savedDto = this.getOne(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return savedDto;
 	}
 
 	@Override
 	public UtentiDto update(UtentiDto dto) {
-		return null;
+		if (dto == null) {
+			return null;
+		}
+		if (dto.getId() == null) {
+			return this.create(dto);
+		}
+		UtentiDto savedDto = null;
+		try {
+			Connection conn = DbConnection.getConnection();
+			Utenti entity = utentiMapper.toModel(dto);
+			String sql = "UPDATE utenti \n"
+				+ "SET nome=?, cognome=?, email=?, username=?, password=?, amministratore=?"
+				+ "WHERE id=? \n";
+			
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, entity.getNome());
+			statement.setString(2, entity.getCognome());
+			statement.setString(3, entity.getEmail());
+			statement.setString(4, entity.getUsername());
+			statement.setString(5, entity.getPassword());
+			statement.setBoolean(6, entity.getAmministratore());
+
+			int updated = statement.executeUpdate();
+			if (updated != 1) {
+				throw new Exception("Entity has been deleted");
+			}
+
+			conn.close();
+
+			savedDto = this.getOne(entity.getId());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return savedDto;
 	}
 
-	@Override
 	public UtentiDto getOne(int id) {
-		return null;
+
+		UtentiDto dto = null;
+
+		try {
+			Connection conn = DbConnection.getConnection();
+			String sql = "SELECT * FROM nation WHERE id = ?";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			// "1" is the index 1-based
+			// setLong method lets me set the x param as given long
+			statement.setInt(1, id);
+			ResultSet rs = statement.executeQuery();
+
+			rs.next(); //potrebbe dare errore non sono sicuro
+			Utenti utente = new Utenti();
+			utente.setId(rs.getInt("id"));
+			utente.setNome(rs.getString("nome"));
+			utente.setCognome(rs.getString("cognnome"));
+			utente.setEmail(rs.getString("email"));
+			utente.setUsername(rs.getString("username"));
+			utente.setPassword(rs.getString("password"));
+			utente.setAmministratore(rs.getBoolean("amministratore"));
+			dto = utentiMapper.toDto(utente);
+
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
 	}
 
 	@Override
