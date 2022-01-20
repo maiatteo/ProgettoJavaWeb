@@ -29,7 +29,9 @@
 				<td>${libro.titolo}</td>
 				<td>${libro.stato}</td>
 				<td><a href="./dettagli/?id=${libro.id}">dettagli</a></td>
-				<td><input type="submit" /></td>
+				<c:if test="${libro.stato == 'disponibile'}">
+					<td><input type="submit" /></td>
+				</c:if>
 			</tr>
 		</c:forEach>
 	</table>
