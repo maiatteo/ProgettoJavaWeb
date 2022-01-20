@@ -8,19 +8,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/ProvaCom/AmmUtenti">AMMINISTRAZIONE UTENTI</a>
+	<c:if test="${amministratore}">
+		<a href="/ProvaCom/AmmUtenti">AMMINISTRAZIONE UTENTI</a>	
+	</c:if>
 	<table>
-		<tr>
-			<th>ID</th>
-			<th>TITOLO</th>
-		</tr>
-		<c:forEach items="${libri}" var="libro">
 			<tr>
-				<td>${libro.id}</td>
-				<td>${libro.titolo}</td>
-
+				<th>ID</th>
+				<th>TITOLO</th>
 			</tr>
-		</c:forEach>
-	</table>
+			<c:forEach items="${libri}" var="libro">
+				<tr>
+					<td>${libro.id}</td>
+					<td>${libro.titolo}</td>
+
+				</tr>
+			</c:forEach>
+		</table>
+
 </body>
 </html>
