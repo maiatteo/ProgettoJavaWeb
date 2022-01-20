@@ -12,17 +12,17 @@
 		<c:when test="${amministratore}">
 			<table>
 				<tr>
-					<th>ID</th>
 					<th>NOME</th>
 					<th>COGNOME</th>
 					<th>USERNAME</th>
+					<th>AMMINISTRATORE</th>
 				</tr>
 				<c:forEach items="${utenti}" var="utente">
 					<tr>
-						<td>${utente.id}</td>
 						<td>${utente.nome}</td>
 						<td>${utente.cognome}</td>
-						<td>${utente.username}</td>
+						<td>${utente.email}</td>
+						<td>${utente.amministratore}</td>
 
 					</tr>
 				</c:forEach>

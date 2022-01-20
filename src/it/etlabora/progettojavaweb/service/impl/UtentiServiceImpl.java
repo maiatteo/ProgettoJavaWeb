@@ -56,6 +56,7 @@ public class UtentiServiceImpl implements UtentiService{
 				utente.setCognome(rs.getString("cognome"));
 				utente.setEmail(rs.getString("email"));
 				utente.setUsername(rs.getString("username"));
+				utente.setAmministratore(rs.getBoolean("amministratore"));
 				utenti.add(UtentiMapper.toDto(utente));
 			}
 			conn.close();
