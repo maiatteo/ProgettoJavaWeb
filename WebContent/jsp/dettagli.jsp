@@ -9,9 +9,6 @@
 <body>
 <form action="/ProvaCom/prenotazione" method="GET">
 		<div>
-			<label>ID: ${libro.id}</label> 
-		</div>
-		<div>
 			<label>TITOLO: ${libro.titolo}</label> 
 		</div>
 		<div>
