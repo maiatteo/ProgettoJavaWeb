@@ -11,9 +11,9 @@ public interface UtentiService {
 
 		public UtentiDto update(UtentiDto dto);
 
-		public UtentiDto getOne(Long id);
+		public UtentiDto getOne(Integer id);
 
-		public void delete(Long id);
+		public void delete(Integer id);
 
 		public List<UtentiDto> getAll();
 		

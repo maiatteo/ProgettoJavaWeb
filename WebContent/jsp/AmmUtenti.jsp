@@ -14,7 +14,7 @@
 				<tr>
 					<th>NOME</th>
 					<th>COGNOME</th>
-					<th>USERNAME</th>
+					<th>EMAIL</th>
 					<th>AMMINISTRATORE</th>
 				</tr>
 				<c:forEach items="${utenti}" var="utente">
