@@ -10,11 +10,11 @@ public interface LibriService {
 
 	public LibriDto update(LibriDto dto);
 
-	public LibriDto getOne(Long id);
+	public LibriDto getOne(Integer id);
 
-	public void delete(Long id);
+	public void delete(Integer id);
 
 	public List<LibriDto> getAll();
-	
+
 	public List<LibriDto> search(String termine);
 }

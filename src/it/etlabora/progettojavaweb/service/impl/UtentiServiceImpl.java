@@ -28,12 +28,12 @@ public class UtentiServiceImpl implements UtentiService{
 	}
 
 	@Override
-	public UtentiDto getOne(Long id) {
+	public UtentiDto getOne(int id) {
 		return null;
 	}
 
 	@Override
-	public void delete(Long id) {		
+	public void delete(int id) {		
 	}
 
 	@Override
