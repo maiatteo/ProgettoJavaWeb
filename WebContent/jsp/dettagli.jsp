@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/World2022/" method="POST">
+<form action="/ProvaCom/prenotazione" method="GET">
 		<div>
 			<label>ID: ${libro.id}</label> 
 		</div>
@@ -32,6 +32,7 @@
 		<div>
 			<label>STATO: ${libro.stato}</label> 
 		</div>
+		<input type="submit" name="PRENOTA"/>
 	</form>
 </body>
 </html>
