@@ -25,7 +25,10 @@ public class Dettagli extends HttpServlet{
     @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	    HttpSession session = req.getSession();
-		    Integer id = 1;
+    	    String idStr = req.getParameter("id");
+    		Integer id = null;
+    	   id = Integer.parseInt(idStr);
+    		
 			LibriDto dto = libriService.getOne(id);
 			req.setAttribute("libro", dto);
 			req.getRequestDispatcher("jsp/dettagli.jsp").forward(req, resp);
