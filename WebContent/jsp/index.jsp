@@ -1,7 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,19 +24,6 @@
 	<h4>
 		non sei ancora registrato? <a href="/ProvaCom/registrazione">registrati</a>
 	</h4>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>TITOLO</th>
-		</tr>
-		<c:forEach items="${libri}" var="libro">
-			<tr>
-				<td>${libro.id}</td>
-				<td>${libro.titolo}</td>
-
-			</tr>
-		</c:forEach>
-	</table>
 </body>
 <style>
 #formulario {
