@@ -19,12 +19,17 @@
 		<tr>
 			<th>ID</th>
 			<th>TITOLO</th>
+			<th>DISPONIBILITA</th>
+			<th>DETTAGLI</th>
+			<th>PRENOTA</th>
 		</tr>
 		<c:forEach items="${libri}" var="libro">
 			<tr>
 				<td>${libro.id}</td>
 				<td>${libro.titolo}</td>
+				<td>${libro.stato}</td>
 				<td><a href="./dettagli/?id=${libro.id}">dettagli</a></td>
+				<td><input type="submit" /></td>
 			</tr>
 		</c:forEach>
 	</table>

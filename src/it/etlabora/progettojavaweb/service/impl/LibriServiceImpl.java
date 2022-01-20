@@ -79,6 +79,7 @@ public class LibriServiceImpl implements LibriService {
 				libro = new Libri();
 				libro.setId(rs.getInt("id"));
 				libro.setTitolo(rs.getString("titolo"));
+				libro.setStato(rs.getString("stato"));
 				libri.add(libriMapper.toDto(libro));
 			}
 			conn.close();
@@ -105,6 +106,7 @@ public class LibriServiceImpl implements LibriService {
 				libro = new Libri();
 				libro.setId(rs.getInt("id"));
 				libro.setTitolo(rs.getString("titolo"));
+				libro.setStato(rs.getString("stato"));
 				libri.add(libriMapper.toDto(libro));
 			}
 			conn.close();
