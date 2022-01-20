@@ -81,6 +81,7 @@ public class UtentiServiceImpl implements UtentiService{
 			while(rs.next()) {
 				if(dto.getUsername().equals(rs.getString("username")) || dto.getEmail().equals(rs.getString("email"))) {
 					System.out.println("True");
+					conn.close();
 					return;
 				}
 			}
