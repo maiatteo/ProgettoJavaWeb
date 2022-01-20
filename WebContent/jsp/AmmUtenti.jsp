@@ -27,7 +27,8 @@
 						<c:choose>
 							<c:when test="${utente.amministratore}"></c:when>
 						<c:otherwise>
-							<td><a href="/ProvaCom/eliminaUtente">ELIMINA</a></td>
+						<form action="/ProvaCom/eliminaUtente"><input type="hidden" value="${utente.id}" name="idUtenteElim"/>
+							<td><button type="submit">ELIMINA</button></form>
 						</c:otherwise>
 						</c:choose>
 					</tr>

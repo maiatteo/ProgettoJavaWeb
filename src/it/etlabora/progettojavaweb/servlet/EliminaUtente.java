@@ -20,6 +20,9 @@ public class EliminaUtente extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	HttpSession session = req.getSession();
+		Integer idElim = Integer.parseInt(req.getParameter("idUtenteElim"));
+		System.out.println(idElim);
+    	utenteService.delete(idElim);
     	req.getRequestDispatcher("jsp/eliminaUtente.jsp").forward(req, resp);
 	}
 	

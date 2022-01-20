@@ -131,11 +131,12 @@ public class UtentiServiceImpl implements UtentiService{
 	@Override
 	public void delete(Integer id) {
 		try {
+			System.out.println(id);
 			Connection conn = DbConnection.getConnection();
 			String sql = "DELETE FROM utenti WHERE id = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);
-			statement.executeQuery();
+			statement.executeUpdate();
 			conn.close();
 		}
 		catch (Exception e) {
