@@ -12,9 +12,9 @@ public interface LibriService {
 
 	public LibriDto getOne(Integer id);
 
-	public void delete(Long id);
+	public void delete(Integer id);
 
 	public List<LibriDto> getAll();
-	
+
 	public List<LibriDto> search(String termine);
 }
