@@ -17,4 +17,6 @@ public interface LibriService {
 	public List<LibriDto> getAll();
 
 	public List<LibriDto> search(String termine);
+	
+	public void prenota(Integer idUtente, Integer idLibro);
 }

@@ -20,6 +20,10 @@ public class Prenotazione extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	HttpSession session = req.getSession();
+    	Integer id = (Integer) session.getAttribute("id");
+    	Integer idPrenota = Integer.parseInt(req.getParameter("idPrenota"));
+    	req.setAttribute("idPrenota", idPrenota);
+    	libriService.prenota(id, idPrenota);
     	req.getRequestDispatcher("jsp/prenotazione.jsp").forward(req, resp);
 	}
 	

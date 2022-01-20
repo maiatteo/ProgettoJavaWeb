@@ -119,4 +119,21 @@ public class LibriServiceImpl implements LibriService {
 		}
 		return libri;
 	}
+
+	public void prenota(Integer idUtente, Integer idLibro) {
+		try {
+			System.out.println(idUtente + " " + idLibro);
+			Connection conn = DbConnection.getConnection();
+			String sql = "UPDATE libri SET stato = 'prenotato', idutente = ? WHERE ID = ?";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, idUtente);
+			statement.setInt(2, idLibro);
+			System.out.println(statement);
+			statement.executeUpdate();
+
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
